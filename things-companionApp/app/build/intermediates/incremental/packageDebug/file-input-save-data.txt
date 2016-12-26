@@ -1,0 +1,12 @@
+#Internal package file, do not edit.
+#Sat Dec 24 03:11:04 IST 2016
+1.base=/Users/vishal/Android/accelerometer/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+1.file=/Users/vishal/Android/accelerometer/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+2.base=/Users/vishal/Android/accelerometer/app/build/intermediates/res/resources-debug.ap_
+2.set=ANDROID_RESOURCE
+2.file=/Users/vishal/Android/accelerometer/app/build/intermediates/res/resources-debug.ap_/resources.arsc
+count=3
+1.set=DEX
+0.set=ANDROID_RESOURCE
+0.base=/Users/vishal/Android/accelerometer/app/build/intermediates/res/resources-debug.ap_
+0.file=/Users/vishal/Android/accelerometer/app/build/intermediates/res/resources-debug.ap_/AndroidManifest.xml

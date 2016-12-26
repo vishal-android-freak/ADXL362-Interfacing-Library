@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/vishal/Android/accelerometer/app/build/intermediates/exploded-aar/accelerometer/adxl/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9330fa243b563febad7368154a24669db5814d6d">
+        <dex dex="/Users/vishal/Android/accelerometer/app/build/intermediates/pre-dexed/debug/accelerometer-adxl-unspecified_9edeb84a6d13c729812fce85e2cfcc44baa84407.jar" />
+    </item>
+
+</items>
