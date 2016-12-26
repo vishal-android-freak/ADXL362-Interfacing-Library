@@ -3,6 +3,7 @@ package vaf.vishal.adxl362;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 
+import com.google.android.things.pio.SpiDevice;
 import com.google.android.things.userdriver.UserDriverManager;
 import com.google.android.things.userdriver.UserSensor;
 import com.google.android.things.userdriver.UserSensorDriver;
@@ -11,8 +12,14 @@ import com.google.android.things.userdriver.UserSensorReading;
 import java.io.IOException;
 
 /**
- * Created by vishal on 20/12/16.
+ * @author Vishal Dubey (vishal-android-freak)
+ * @link https://github.com/vishal-android-freak/ADXL362-Interfacing-Library
+ * Android Things library for interfacing ADXL362 3 Axis accelerometer with Raspberry Pi 3 (Driver)
+ * X, Y and Z axis values are obtained as integers.
+ * Temperature values are obtained as integers.
+ * TODO: Handle interrupt based interfacing
  */
+
 
 public class Adxl362AccelerometerDriver implements AutoCloseable {
 
@@ -24,8 +31,17 @@ public class Adxl362AccelerometerDriver implements AutoCloseable {
     private Adxl362 mDevice;
     private UserSensor mUserSensor;
 
-    public Adxl362AccelerometerDriver(String spiPort) throws IOException {
-        mDevice = new Adxl362(spiPort);
+    /**
+     * Creates a new ADXL362 driver instance
+     * @param spiPort - can be either SPI0.0 or SPI0.1 (for Raspberry Pi)
+     * @param frequencyInHz - This will vary according to the peripheral to be interfaced, default should be 1MHz.
+     *                      ADXL362 has a range of 1MHz to 8MHz. Tested on 5MHz
+     * @param mode - Modes are MODE_0, MODE_1, MODE_2, MODE_3.
+     *             ADXL362 works on MODE_0
+     * @throws IOException
+     */
+    public Adxl362AccelerometerDriver(String spiPort, int frequencyInHz, int mode) throws IOException {
+        mDevice = new Adxl362(spiPort, frequencyInHz, mode);
     }
 
     @Override
@@ -64,6 +80,10 @@ public class Adxl362AccelerometerDriver implements AutoCloseable {
         }
     }
 
+    /**
+     * Build User sesnor to be registered with the Android Things framework
+     * @param adxl362 instance of core ADXL362.java
+     */
     private static UserSensor build(final Adxl362 adxl362) {
         return UserSensor.builder()
                 .setName(DRIVER_NAME)
