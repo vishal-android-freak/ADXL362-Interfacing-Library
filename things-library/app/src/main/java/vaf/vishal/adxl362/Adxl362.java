@@ -36,7 +36,7 @@ public class Adxl362 implements AutoCloseable {
         mHandler.postDelayed(softRest, 1000);
     }
 
-    public void beginMeasurement() throws IOException, InterruptedException {
+    private void beginMeasurement() throws IOException, InterruptedException {
         device.write(new byte[]{(byte) 0x0A, (byte) 0x2D, (byte) 0x02}, 3);
         Thread.sleep(10);
     }
