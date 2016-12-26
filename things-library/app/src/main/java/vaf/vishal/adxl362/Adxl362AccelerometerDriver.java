@@ -28,10 +28,6 @@ public class Adxl362AccelerometerDriver implements AutoCloseable {
         mDevice = new Adxl362(spiPort);
     }
 
-    public void beginMeasurement() throws IOException, InterruptedException {
-        mDevice.beginMeasurement();
-    }
-
     @Override
     public void close() throws Exception {
         unregister();
