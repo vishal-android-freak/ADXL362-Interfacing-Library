@@ -70,15 +70,16 @@ public class Adxl362AccelerometerDriver implements AutoCloseable {
 
     private static UserSensor build(final Adxl362 adxl362) {
         return UserSensor.builder()
-                .setType(Sensor.TYPE_ACCELEROMETER)
                 .setName(DRIVER_NAME)
                 .setVendor(DRIVER_VENDOR)
                 .setVersion(DRIVER_VERSION)
+                .setCustomType(Sensor.TYPE_DEVICE_PRIVATE_BASE,
+                        "vaf.vishal.adxl", Sensor.REPORTING_MODE_CONTINUOUS)
                 .setDriver(new UserSensorDriver() {
                     @Override
                     public UserSensorReading read() throws IOException {
                         float[] values = adxl362.readXYZTempData();
-                        return new UserSensorReading(values, SensorManager.SENSOR_STATUS_ACCURACY_HIGH);
+                        return new UserSensorReading(values);
                     }
                 })
                 .build();

@@ -9,6 +9,7 @@ import com.google.android.things.pio.SpiDevice;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 /**
  * Created by vishal on 20/12/16.
@@ -89,6 +90,7 @@ public class Adxl362 implements AutoCloseable {
             try {
                 device.write(new byte[]{(byte) 0x0A, (byte) 0x1F, (byte) 0x52}, 3);
                 Thread.sleep(1000);
+                beginMeasurement();
             } catch (IOException | InterruptedException e) {
                 Log.d(TAG, "Couldn't write over SPI");
             }
