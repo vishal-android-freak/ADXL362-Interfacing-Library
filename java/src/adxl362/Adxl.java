@@ -25,10 +25,6 @@ import javax.xml.bind.DatatypeConverter;
  */
 
 public class Adxl {
-    
-    public static SpiDevice spiDevice;
-    public static byte [] write = new byte[10];
-    public static byte [] readPwr = new byte[10];
     /**
      * @param args the command line arguments
      */
